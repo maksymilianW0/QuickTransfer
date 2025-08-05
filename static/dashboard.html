@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="static/css/dashboard.css" />
+  <title>Mój Dysk</title>
+</head>
+<body>
+
+  <header>QuickTransfer</header>
+
+  <!-- Pasek narzędzi -->
+  <nav class="toolbar">
+    <button title="Cofnij">⬅️ Cofnij</button>
+    <button title="Do przodu">➡️ Do przodu</button>
+    <button title="Katalog wyżej">⬆️ W górę</button>
+    <button id="deleteBtn" title="Usuń">❌ Usuń</button>
+    <button title="Zmień nazwę">✏️ Zmień nazwę</button>
+    <button id="downloadBtn" title="Pobierz zaznaczone">📥 Pobierz</button>
+  </nav>
+
+  <!-- Siatka plików -->
+  <main class="grid">
+    <!-- <div class="file" data-filename="zdjęcie1.jpg" data-filetype="image">
+      <img src="https://via.placeholder.com/64x64.png?text=IMG" alt="Podgląd zdjęcia">
+      <div class="filename">zdjęcie1.jpg</div>
+    </div>
+    <div class="file" data-filename="dokument.pdf" data-filetype="document">
+      <div class="file-icon">📄</div>
+      <div class="filename">dokument.pdf</div>
+    </div>
+    <div class="file" data-filename="folder" data-filetype="dir">
+      <div class="file-icon">📁</div>
+      <div class="filename">folder</div>
+    </div> -->
+  </main>
+
+  <!-- Floating Action Button -->
+  <button class="fab">+</button>
+
+  <!-- Menu kontekstowe -->
+  <div id="contextMenu" class="context-menu">
+    <button onclick="handleContextOpen()">📂 Otwórz</button>
+    <button onclick="alert('Zmień nazwę')">✏️ Zmień nazwę</button>
+    <button onclick="handleContextDelete()">❌ Usuń</button>
+    <button onclick="handleContextDownload()">📥 Pobierz</button>
+  </div>
+  
+  <input type="file" id="fileInput" style="display:none" multiple />
+
+  <div id="imageViewer" class="image-viewer hidden">
+    <span class="close-btn">✖</span>
+    <img class="viewer-img" src="" alt="">
+    <button class="prev-btn">←</button>
+    <button class="next-btn">→</button>
+  </div>
+
+
+<script src="static/js/dashboard.js"></script>
+
+</body>
+</html>

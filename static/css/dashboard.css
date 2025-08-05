@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f5f5;
+}
+
+header {
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.toolbar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.toolbar button {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: background 0.2s;
+}
+
+.toolbar button:hover {
+    background: #eaeaea;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.file {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.file:hover {
+    transform: translateY(-4px);
+}
+
+.file img, .file-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.file.selected {
+    background-color: #eaeaea;
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.3);
+}
+
+.file-icon {
+    font-size: 48px;
+    color: #555;
+}
+
+.filename {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #333;
+}
+
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.fab:hover {
+    background-color: #155ab6;
+}
+
+.context-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    padding: 0.5rem 0;
+    display: none;
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.context-menu button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.context-menu button:hover {
+    background-color: #f0f0f0;
+}
+
+.file.dragging {
+    opacity: 0.5;
+    border: 2px dashed #1a73e8;
+}
+
+.grid.dragover {
+    background-color: #dbe9ff;
+    border: 2px dashed #1a73e8;
+    border-radius: 8px;
+}
+
+
+
+
+.image-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 9999;
+}
+
+.image-viewer.hidden {
+  display: none;
+}
+
+.image-viewer img.viewer-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.image-viewer .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.image-viewer button.prev-btn,
+.image-viewer button.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.image-viewer button.prev-btn {
+  left: 20px;
+}
+
+.image-viewer button.next-btn {
+  right: 20px;
+}
+
+
+.file,
+.file * {
+  user-select: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.viewer {
+  position: relative;
+  background: #111;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: #444;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.filename {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  display: block;
+  font-size: 0.9em;
+}
